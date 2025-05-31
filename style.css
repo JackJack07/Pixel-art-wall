@@ -1,4 +1,4 @@
-/* General layout */
+/* Reset page style */
 body, html {
   margin: 0;
   padding: 0;
@@ -9,32 +9,45 @@ body, html {
   align-items: center;
 }
 
-/* Wall background */
+/* Wall container */
 .wall {
   width: 100vw;
   height: 100vh;
   background-color: #444;
+
+  /* Create brick pattern using layered gradients */
   background-image:
+    /* Horizontal lines between brick rows */
     repeating-linear-gradient(
-      0deg,
-      #777 0px,
-      #777 18px,
-      #666 18px,
-      #666 20px
+      to bottom,
+      transparent,
+      transparent 38px,
+      #2a2a2a 39px,
+      transparent 40px
     ),
+    /* Vertical lines for odd rows */
     repeating-linear-gradient(
-      90deg,
-      #888 0px,
-      #888 40px,
-      #666 40px,
-      #666 42px
+      to right,
+      #555,
+      #555 78px,
+      #2a2a2a 79px,
+      transparent 80px
+    ),
+    /* Vertical lines for even rows with offset */
+    repeating-linear-gradient(
+      to right,
+      transparent,
+      transparent 38px,
+      #2a2a2a 39px,
+      transparent 80px
     );
   background-size: 80px 40px;
-  position: relative;
+  background-repeat: repeat;
   image-rendering: pixelated;
+  position: relative;
 }
 
-/* Make the canvas full-screen */
+/* Full-screen canvas on top */
 canvas {
   position: absolute;
   top: 0;
@@ -43,4 +56,3 @@ canvas {
   height: 100%;
   pointer-events: auto;
 }
-
