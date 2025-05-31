@@ -39,4 +39,3 @@ canvas.addEventListener('click', (e) => {
 
   drawBrokenBricks();
 });
-
